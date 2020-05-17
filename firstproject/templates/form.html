@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+
+{% block content %}
+<style>
+    .man .tap : hover{ 
+        color: black;  
+
+
+    }
+
+       
+</style>
+
+
+<form method="POST" action=''>
+    {%csrf_token%}
+    {{employees|crispy}}
+  <button type="submit">submit</button>
+<button>  <a href="{%url 'list'%}"> Go back</a></button>
+  
+</form>
+{% endblock content %}

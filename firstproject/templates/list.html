@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+{% load static %}
+
+
+{%block content%}
+<table class="tab">
+    <tr>
+        <td>name</td>
+        <td>email</td>
+        <td>contact no.</td>
+        <td>title</td>
+        <td><button><a href="{% url 'home' %}"> add new </a></button></td>
+    </tr>
+  
+        {%for employee in employees %}
+        <tr>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.contactno}}</td>
+        <td>{{employee.position}}</td>
+        <td><button><a href="{% url 'employee_list' employee.id%}">edit</a></button>
+        <button><a href="{% url 'employee_delete' employee.id%}">delete</a> </button></td>
+
+       </tr>
+ 
+ {%endfor%}
+
+</table>
+{% endblock content%}
